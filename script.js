@@ -19,7 +19,12 @@ const DATA = {
         { name: 'Александр Майонез', img: '5.png', color: '#ffff00', ru: 'майонез', en: 'mayonnaise', ua: 'майонез' },
         { name: 'богдан', img: '6.png', color: '#800080', ru: 'наркоман из днепра', en: 'drug addict from Dnipro', ua: 'наркоман з Дніпра' },
         { name: 'Nik', img: '7.png', color: '#808080', ru: 'наркоман из москвы', en: 'drug addict from Moscow', ua: 'наркоман з Москви' },
-        { name: 'Саша Фантомас', img: '8.png', color: '#ff69b4', ru: 'наркоманка из днепра', en: 'female drug addict from Dnipro', ua: 'наркоманка з Дніпра' }
+        { name: 'Саша Фантомас', img: '8.png', color: '#ff69b4', ru: 'наркоманка из днепра', en: 'female drug addict from Dnipro', ua: 'наркоманка з Дніпра' },
+        { name: 'zxmakz', img: '9.png', color: '#00bfff', ru: 'хороший русский - мертвый русский', en: 'good Russian - dead Russian', ua: 'хороший росіянин - мертвий росіянин' },
+        { name: 'jkeex', img: '10.png', color: '#32cd32', ru: 'сын оксаны', en: 'Oksana\'s son', ua: 'син Оксани' },
+        { name: 'Оксана', img: '11.png', color: '#ff8c00', ru: 'мать джека', en: 'Jack\'s mother', ua: 'мати Джека' },
+        { name: 'папаня', img: '12.png', color: '#8b4513', ru: 'хранитель спермы саратова', en: 'keeper of sperm of Saratov', ua: 'охоронець сперми Саратова' },
+        { name: 'мила', img: '13.png', color: '#ff1493', ru: 'нн', en: 'n/a', ua: 'н/д' }
     ],
     links: [
         { icon:'✈️', name: 'Telegram', u: '', c: '#0088cc', link: 'https://t.me/thiseq' },
