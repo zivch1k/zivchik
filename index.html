@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Живчик | v2.8</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <canvas id="starfield"></canvas>
+    <div class="glow-overlay"></div>
+    <div id="cursor-particles"></div>
+
+    <div class="app-shell">
+        <aside class="sidebar glass-panel">
+            <div class="iphone-hello">
+                <span>Hello</span>
+                <span>Привет</span>
+                <span>こんにちは</span>
+                <span>안녕하세요</span>
+                <span>Hola</span>
+                <span>नमस्ते</span>
+                <span>Bonjour</span>
+                <span>Привіт</span>
+            </div>
+            <button class="nav-item active" onclick="nav('home', this)" data-key="menu-main">Главная</button>
+            <button class="nav-item" onclick="nav('links', this)" data-key="menu-links">Ссылки</button>
+            <button class="nav-item hall-btn" onclick="nav('hall', this)">
+                <span>Hall of Autism</span>
+            </button>
+            <div style="margin-top: auto; padding-top: 20px;">
+                <button class="nav-item" onclick="nav('settings', this)" data-key="menu-settings" style="border-style: dashed; opacity: 0.6;">Настройки</button>
+            </div>
+            <p style="font-size: 10px; opacity: 0.3; margin-top: 15px; text-align: center;">живчик@ 2026 • v2.8</p>
+        </aside>
+
+        <main class="content-view glass-panel">
+            <header class="top-bar">
+                <div class="lang-switch">
+                    <button class="lang-btn active" onclick="setLang('RU')">RU</button>
+                    <button class="lang-btn" onclick="setLang('EN')">EN</button>
+                    <button class="lang-btn" onclick="setLang('UA')">UA</button>
+                </div>
+            </header>
+
+            <section id="home" class="page active">
+                <h2 style="margin-bottom: 20px;">Change Log</h2>
+                <div id="changelog-list" style="display: grid; gap: 12px;"></div>
+            </section>
+
+            <section id="hall" class="page">
+                <h1 class="rainbow-txt" style="font-size: 2.5rem; margin-bottom: 30px; font-weight: 800;">HALL OF AUTISM</h1>
+                <input type="text" id="hall-search" data-key="hall-search-placeholder" placeholder="Search hall..." style="width: 100%; padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: var(--text-main); margin-bottom: 20px; outline: none;">
+                <div id="people-grid" style="display: grid; grid-template-columns: repeat(auto-fill, minmax(350px, 1fr)); gap: 20px;"></div>
+                <div id="yt-audio" style="width:1px;height:1px;overflow:hidden;position:absolute;left:-9999px;top:-9999px;">
+                    <iframe id="yt-iframe" width="1" height="1" src="" allow="autoplay; encrypted-media" allowfullscreen></iframe>
+                </div>
+            </section>
+
+            <section id="links" class="page">
+                <h2 style="margin-bottom: 20px;" data-key="links-title">Resources</h2>
+                <input type="text" id="links-search" data-key="links-search-placeholder" placeholder="Search links..." style="width: 100%; padding: 10px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.05); color: var(--text-main); margin-bottom: 20px; outline: none;">
+                <div id="links-container" style="display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 12px;"></div>
+            </section>
+
+            <section id="settings" class="page">
+                <h2 style="margin-bottom: 25px;" data-key="set-section-title">Configuration</h2>
+                <div class="settings-grid">
+                    <div class="setting-card">
+                        <div>
+                            <p style="font-weight: 700;" data-key="set-audio-t">Эмбиент</p>
+                            <p style="font-size: 12px; opacity: 0.5;" data-key="set-audio-desc">Lofi Flow Stream</p>
+                        </div>
+                        <label class="switch">
+                            <input type="checkbox" id="musicToggle" checked onchange="toggleMusic(this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-card">
+                        <p style="font-weight: 700;" data-key="set-volume">Volume</p>
+                        <input type="range" id="volumeSlider" min="0" max="1" step="0.05" value="0.3">
+                    </div>
+                    <div class="setting-card">
+                        <p style="font-weight: 700;" data-key="set-theme-t">Light Mode</p>
+                        <label class="switch">
+                            <input type="checkbox" onchange="toggleTheme(this.checked)">
+                            <span class="slider"></span>
+                        </label>
+                    </div>
+                    <div class="setting-card">
+                        <button data-key="set-shuffle-hall" style="padding: 8px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: var(--text-main); cursor:pointer;" onclick="shuffleHall()">Перемешать Hall</button>
+                        <button data-key="set-random-link" style="padding: 8px 14px; border-radius: 12px; border: 1px solid rgba(255,255,255,0.2); background: rgba(255,255,255,0.08); color: var(--text-main); cursor:pointer;" onclick="openRandomLink()">Случайная ссылка</button>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <audio id="bg-music" loop>
+        <source src="https://stream.zeno.fm/0r0xa792kwzuv" type="audio/mpeg">
+    </audio>
+    <audio id="hall-music" loop>
+        <source src="soundhall.mp3" type="audio/mpeg">
+    </audio>
+
+    <div class="copyright-badge">all rights reserved 2026 ©</div>
+
+    <script src="script.js"></script>
+</body>
+</html>
